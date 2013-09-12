@@ -1,0 +1,17 @@
+{
+    "name": "cyantree/grout-service-module",
+    "type": "grout-module",
+    "description": "module for simple webservices",
+    "keywords": ["grout", "webservice", "json"],
+    "homepage": "https://github.com/cyantree/grout-service-module",
+    "license": "LGPL-3.0",
+    "authors": [
+        {"name": "Christoph Schreiber", "email": "mail@cyantree.com"}
+    ],
+    "require": {
+        "cyantree/grout-module-installer": "0.0.*"
+    },
+    "extra": {
+        "grout-module-name": "Cyantree/ServiceModule"
+    }
+}
