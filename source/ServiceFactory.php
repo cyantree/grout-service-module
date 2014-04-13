@@ -1,17 +1,21 @@
 <?php
 namespace Grout\Cyantree\ServiceModule;
 
+use Cyantree\Grout\App\App;
 use Cyantree\Grout\App\GroutFactory;
-use Grout\BootstrapModule\GlobalFactory;
+use Grout\AppModule\AppFactory;
 use Grout\Cyantree\ServiceModule\Types\ServiceConfig;
 
-class ServiceFactory extends GlobalFactory
+class ServiceFactory extends AppFactory
 {
+    /** @var ServiceModule */
+    public $module;
+
     /** @return ServiceFactory */
-    public static function get($app, $moduleId = 'Cyantree\ServiceModule')
+    public static function get(App $app = null, $moduleId = null)
     {
         /** @var ServiceFactory $factory */
-        $factory = GroutFactory::_getInstance($app, __CLASS__, $moduleId);
+        $factory = GroutFactory::_getInstance($app, __CLASS__, $moduleId, 'Cyantree\ServiceModule');
 
         return $factory;
     }
@@ -24,20 +28,7 @@ class ServiceFactory extends GlobalFactory
         }
 
         /** @var ServiceConfig $tool */
-        $tool = $this->app->config->get('Cyantree\ServiceModule', $this->context, new ServiceConfig());
-
-        $this->_setAppTool(__FUNCTION__, $tool);
-        return $tool;
-    }
-
-    public function appModule()
-    {
-        if($tool = $this->_getAppTool(__FUNCTION__, __CLASS__)){
-            return $tool;
-        }
-
-        /** @var ServiceModule $tool */
-        $tool = $this->app->getModuleById($this->context);
+        $tool = $this->app->configs->getConfig($this->module->id);
 
         $this->_setAppTool(__FUNCTION__, $tool);
         return $tool;

@@ -1,5 +1,6 @@
 {
     "name": "cyantree/grout-service-module",
+    "version": "1.0",
     "type": "grout-module",
     "description": "module for simple webservices",
     "keywords": ["grout", "webservice", "json"],
@@ -8,8 +9,13 @@
     "authors": [
         {"name": "Christoph Schreiber", "email": "mail@cyantree.com"}
     ],
+    "autoload": {
+        "psr-4": {
+            "Grout\\Cyantree\\ServiceModule\\": ["", "source/"]
+        }
+    },
     "require": {
-        "cyantree/grout-module-installer": "0.0.*"
+        "cyantree/grout": "1.*"
     },
     "extra": {
         "grout-module-name": "Cyantree/ServiceModule"
