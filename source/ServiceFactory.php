@@ -21,7 +21,7 @@ class ServiceFactory extends AppFactory
     }
 
 
-    public function appConfig()
+    public function config()
     {
         if($tool = $this->_getAppTool(__FUNCTION__, __CLASS__)){
             return $tool;
