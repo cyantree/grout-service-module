@@ -15,7 +15,7 @@ class ServiceFactory extends AppFactory
     public static function get(App $app = null, $moduleId = null)
     {
         /** @var ServiceFactory $factory */
-        $factory = GroutFactory::_getInstance($app, __CLASS__, $moduleId, 'Cyantree\ServiceModule');
+        $factory = GroutFactory::getFactory($app, __CLASS__, $moduleId, 'Cyantree\ServiceModule');
 
         return $factory;
     }
