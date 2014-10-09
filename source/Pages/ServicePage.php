@@ -9,20 +9,20 @@ use Grout\Cyantree\ServiceModule\ServiceFactory;
 class ServicePage extends Page
 {
     /** @var ServiceDriver */
-    private $_driver;
+    private $driver;
 
     public function parseTask()
     {
-        $this->_driver = new JsonDriver();
-        $this->_driver->commandNamespaces = ServiceFactory::get($this->app, $this->task->module->id)->config()->commandNamespaces;
+        $this->driver = new JsonDriver();
+        $this->driver->commandNamespaces = ServiceFactory::get($this->app, $this->task->module->id)->config()->commandNamespaces;
 
-        $this->_driver->processTask($this->task);
+        $this->driver->processTask($this->task);
     }
 
     public function parseError($code, $data = null)
     {
-        if ($this->_driver) {
-            $this->_driver->processError($this->task);
+        if ($this->driver) {
+            $this->driver->processError($this->task);
         } else {
             parent::parseError($code, $data);
         }
