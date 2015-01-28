@@ -6,6 +6,7 @@ use Cyantree\Grout\App\GroutFactory;
 use Grout\AppModule\AppFactory;
 use Grout\Cyantree\ServiceModule\Types\ServiceConfig;
 
+// TODO: Remove dependency of AppFactory
 class ServiceFactory extends AppFactory
 {
     /** @var ServiceModule */
